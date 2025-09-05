@@ -172,22 +172,83 @@
             </div>
         </section>
         
-        <!-- Contact Section with Map -->
-        <section id="contact-preview" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">Contact Us Today</h2>
-                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                    When you need reliable <strong>towing</strong> or <strong>roadside assistance</strong> in Pittsburgh, don't hesitate. Call us anytime, day or night.
-                </p>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
-                    <div class="text-center md:text-left">
-                        <p class="text-2xl font-bold text-blue-600 mb-2">24/7 Hotline</p>
-                        <a href="tel:+18666964376" class="text-4xl font-extrabold text-blue-900 hover:text-blue-700 transition-colors duration-300">(866) 696-4376</a>
-                        <p class="mt-4 text-gray-600">We're on standby, ready to dispatch a <strong>tow truck</strong> to your location.</p>
-                    </div>
-                    <div class="w-full md:w-1/2">
-                        <img src="Gemini_Generated_Image_8wgfsy8wgfsy8wgf.png" alt="Hero with a tow truck" class="rounded-xl shadow-lg w-full">
-                    </div>
+        <!-- Cost Estimator / Contact Form Section -->
+        <section id="cost-estimator" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-2xl shadow-xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4 text-center">Get a Towing Estimate</h2>
+                    <p class="text-center text-gray-600 mb-8">Fill out the form below to get an estimated cost and send us a tow request.</p>
+
+                    <form id="estimateForm" action="mailto:heroes.towing.rescue@gmail.com" method="post" enctype="text/plain" onsubmit="return false;">
+                        <div class="mb-6">
+                            <label for="miles" class="block text-gray-700 font-bold mb-2">Estimated Miles to Destination: <span id="milesValue">25</span> mi*</label>
+                            <input type="range" id="miles" name="miles" min="0" max="100" value="25" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer">
+                            <p class="text-sm text-gray-500 mt-2">*For tows over 100 miles, please contact us for a detailed quote.</p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="pickup" class="block text-gray-700 font-bold mb-2">Pickup Location</label>
+                                <input type="text" id="pickup" name="pickup" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="dropoff" class="block text-gray-700 font-bold mb-2">Drop-off Location</label>
+                                <input type="text" id="dropoff" name="dropoff" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="date" class="block text-gray-700 font-bold mb-2">Date</label>
+                                <input type="date" id="date" name="date" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="time" class="block text-gray-700 font-bold mb-2">Time</label>
+                                <input type="time" id="time" name="time" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-gray-700 font-bold mb-2">Vehicle Status</label>
+                            <div class="flex flex-col space-y-2">
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" id="keysMissing" class="form-checkbox text-blue-600 h-5 w-5 rounded-md">
+                                    <span class="ml-2 text-gray-700">Keys missing ($50)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" id="unattended" class="form-checkbox text-blue-600 h-5 w-5 rounded-md">
+                                    <span class="ml-2 text-gray-700">Vehicle will be unattended (No extra charge)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" id="inAccident" class="form-checkbox text-blue-600 h-5 w-5 rounded-md">
+                                    <span class="ml-2 text-gray-700">Vehicle was in an accident ($100)</span>
+                                </label>
+                                <label class="inline-flex items-center">
+                                    <input type="checkbox" id="noNeutral" class="form-checkbox text-blue-600 h-5 w-5 rounded-md">
+                                    <span class="ml-2 text-gray-700">Vehicle won't go into neutral ($75)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-bold mb-2">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="contact" class="block text-gray-700 font-bold mb-2">Phone or Email</label>
+                            <input type="text" id="contact" name="contact" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+
+                        <div class="mb-6 bg-blue-100 p-4 rounded-lg">
+                            <h3 class="text-xl font-bold text-blue-900">Estimated Total: <span id="totalCost" class="text-blue-600">$200.00</span></h3>
+                            <p class="text-sm text-gray-600 mt-2">This is an estimate. Final cost may vary. The actual cost will be confirmed by a Heroes Towing representative.</p>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-4 px-6 rounded-full shadow-lg hover:bg-blue-700 transition-colors duration-300">
+                            Submit Request
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -223,6 +284,90 @@
 
         mobileMenuButton.addEventListener('click', () => {
             mobileMenuDropdown.classList.toggle('hidden');
+        });
+
+        // Cost Estimator Logic
+        const milesInput = document.getElementById('miles');
+        const milesValueSpan = document.getElementById('milesValue');
+        const totalCostSpan = document.getElementById('totalCost');
+        const keysMissingCheckbox = document.getElementById('keysMissing');
+        const inAccidentCheckbox = document.getElementById('inAccident');
+        const noNeutralCheckbox = document.getElementById('noNeutral');
+        const estimateForm = document.getElementById('estimateForm');
+        
+        const BASE_RATE_PER_MILE = 8;
+        const EXTRA_FEES = {
+            keysMissing: 50,
+            inAccident: 100,
+            noNeutral: 75
+        };
+
+        function calculateCost() {
+            const miles = parseInt(milesInput.value, 10);
+            let cost = miles * BASE_RATE_PER_MILE;
+
+            if (keysMissingCheckbox.checked) {
+                cost += EXTRA_FEES.keysMissing;
+            }
+            if (inAccidentCheckbox.checked) {
+                cost += EXTRA_FEES.inAccident;
+            }
+            if (noNeutralCheckbox.checked) {
+                cost += EXTRA_FEES.noNeutral;
+            }
+
+            totalCostSpan.textContent = `$${cost.toFixed(2)}`;
+        }
+
+        milesInput.addEventListener('input', () => {
+            milesValueSpan.textContent = milesInput.value;
+            calculateCost();
+        });
+
+        keysMissingCheckbox.addEventListener('change', calculateCost);
+        inAccidentCheckbox.addEventListener('change', calculateCost);
+        noNeutralCheckbox.addEventListener('change', calculateCost);
+
+        // Initial calculation on page load
+        calculateCost();
+
+        estimateForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const miles = milesInput.value;
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            
+            const keysMissing = keysMissingCheckbox.checked ? 'Yes' : 'No';
+            const unattended = document.getElementById('unattended').checked ? 'Yes' : 'No';
+            const inAccident = inAccidentCheckbox.checked ? 'Yes' : 'No';
+            const noNeutral = noNeutralCheckbox.checked ? 'Yes' : 'No';
+            const totalCost = totalCostSpan.textContent;
+
+            const subject = `Towing Service Request from ${name}`;
+            const body = `
+                Name: ${name}
+                Contact: ${contact}
+                Pickup Location: ${pickup}
+                Drop-off Location: ${dropoff}
+                Date: ${date}
+                Time: ${time}
+                
+                -- Vehicle Status --
+                Estimated Miles: ${miles}
+                Keys Missing: ${keysMissing}
+                Vehicle Unattended: ${unattended}
+                In Accident: ${inAccident}
+                Won't Go Into Neutral: ${noNeutral}
+                
+                Estimated Cost: ${totalCost}
+            `;
+
+            const mailtoLink = `mailto:heroes.towing.rescue@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
         });
     </script>
 </body>
